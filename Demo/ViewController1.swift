@@ -51,22 +51,22 @@ class ViewController1: UIViewController {
         progressLabel.text = "progress： \(String(format: "%.2f", per * 100))%"
         progressView.observedProgress = task.progress
         speedLabel.text = "speed： \(task.speedString)"
-        timeRemainingLabel.text = "剩余时间： \(task.timeRemainingString)"
-        startDateLabel.text = "开始时间： \(task.startDateString)"
-        endDateLabel.text = "结束时间： \(task.endDateString)"
+        timeRemainingLabel.text = "Time left： \(task.timeRemainingString)"
+        startDateLabel.text = "Starting time： \(task.startDateString)"
+        endDateLabel.text = "End time： \(task.endDateString)"
         var validation: String
         switch task.validation {
         case .unkown:
             validationLabel.textColor = UIColor.blue
-            validation = "未知"
+            validation = "unknown"
         case .correct:
             validationLabel.textColor = UIColor.green
-            validation = "正确"
+            validation = "correct"
         case .incorrect:
             validationLabel.textColor = UIColor.red
-            validation = "错误"
+            validation = "incorrect"
         }
-        validationLabel.text = "文件验证： \(validation)"
+        validationLabel.text = "File Verification： \(validation)"
     }
     
     @IBAction func start(_ sender: UIButton) {

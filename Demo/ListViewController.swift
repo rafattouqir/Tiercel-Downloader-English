@@ -42,7 +42,7 @@ class ListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.reuseIdentifier, for: indexPath) as! ListViewCell
-        cell.URLStringLabel.text = "文件\(indexPath.row + 1).mp4"
+        cell.URLStringLabel.text = "file\(indexPath.row + 1).mp4"
         let URLStirng = URLStrings[indexPath.row]
         cell.downloadClosure = { cell in
             appDelegate.sessionManager4.download(URLStirng, fileName: cell.URLStringLabel.text)

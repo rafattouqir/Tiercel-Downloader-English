@@ -34,27 +34,27 @@ class DownloadTaskCell: UITableViewCell {
         progressView.observedProgress = task.progress
         bytesLabel.text = "\(task.progress.completedUnitCount.tr.convertBytesToString())/\(task.progress.totalUnitCount.tr.convertBytesToString())"
         speedLabel.text = task.speedString
-        timeRemainingLabel.text = "剩余时间：\(task.timeRemainingString)"
-        startDateLabel.text = "开始时间：\(task.startDateString)"
-        endDateLabel.text = "结束时间：\(task.endDateString)"
+        timeRemainingLabel.text = "Time left: \(task.timeRemainingString)"
+        startDateLabel.text = "Starting time：\(task.startDateString)"
+        endDateLabel.text = "End time：\(task.endDateString)"
         
         var image = #imageLiteral(resourceName: "suspend")
         switch task.status {
         case .suspended:
-            statusLabel.text = "暂停"
+            statusLabel.text = "time out"
             statusLabel.textColor = .black
         case .running:
             image = #imageLiteral(resourceName: "resume")
-            statusLabel.text = "下载中"
+            statusLabel.text = "downloading"
             statusLabel.textColor = .blue
         case .succeeded:
-            statusLabel.text = "成功"
+            statusLabel.text = "success"
             statusLabel.textColor = .green
         case .failed:
-            statusLabel.text = "失败"
+            statusLabel.text = "failure"
             statusLabel.textColor = .red
         case .waiting:
-            statusLabel.text = "等待中"
+            statusLabel.text = "waiting"
             statusLabel.textColor = .orange
         default:
             image = controlButton.imageView?.image ?? #imageLiteral(resourceName: "suspend")

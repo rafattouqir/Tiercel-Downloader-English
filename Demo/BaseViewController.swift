@@ -31,9 +31,9 @@ class BaseViewController: UIViewController {
 
         setupUI()
         
-        // 检查磁盘空间
+        // Check disk space
         let free = UIDevice.current.tr.freeDiskSpaceInBytes / 1024 / 1024
-        print("手机剩余储存空间为： \(free)MB")
+        print("The remaining storage space of the phone is： \(free)MB")
 
         sessionManager.logger.option = .default
         
@@ -54,7 +54,7 @@ class BaseViewController: UIViewController {
     }
     
     func configureNavigationItem() {
-        let editingItem = UIBarButtonItem(title: tableView.isEditing ? "完成" : "编辑",
+        let editingItem = UIBarButtonItem(title: tableView.isEditing ? "carry out" : "edit",
                                           style: .plain,
                                           target: self,
                                           action: #selector(toggleEditing))
@@ -68,11 +68,11 @@ class BaseViewController: UIViewController {
     }
 
     func updateUI() {
-        totalTasksLabel.text = "总任务：\(sessionManager.succeededTasks.count)/\(sessionManager.tasks.count)"
-        totalSpeedLabel.text = "总速度：\(sessionManager.speedString)"
-        timeRemainingLabel.text = "剩余时间： \(sessionManager.timeRemainingString)"
+        totalTasksLabel.text = "Total task：\(sessionManager.succeededTasks.count)/\(sessionManager.tasks.count)"
+        totalSpeedLabel.text = "Total speed：\(sessionManager.speedString)"
+        timeRemainingLabel.text = "Time left： \(sessionManager.timeRemainingString)"
         let per = String(format: "%.2f", sessionManager.progress.fractionCompleted)
-        totalProgressLabel.text = "总进度： \(per)"
+        totalProgressLabel.text = "total progress： \(per)"
     }
     
     func updateSwicth() {
